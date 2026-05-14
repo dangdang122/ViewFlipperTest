@@ -2,18 +2,17 @@ package kr.ac.kopo.viewflippertest;
 
 import android.os.Bundle;import android.view.View;import android.widget.Button;import android.widget.ViewFlipper;
 
+import android.os.Bundle;import android.view.View;import android.widget.Button;import android.widget.ViewFlipper;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-
 public class MainActivity extends AppCompatActivity {
-
     ViewFlipper flipper;
-
-    Button btnPrev, btnNext;
+    Button btnStart, btnStop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +25,19 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        btnPrev = findViewById(R.id.btn_prev);
-        btnNext = findViewById(R.id.btn_next);
+        btnStart = findViewById(R.id.btn_prev);
+        btnStop = findViewById(R.id.btn_next);
         flipper = findViewById(R.id.flipper);
 
-        btnPrev.setOnClickListener(btnListener);
-        btnNext.setOnClickListener(btnListener);
+        btnStart.setOnClickListener(btnListener);
+        btnStop.setOnClickListener(btnListener);
     }
 
     View.OnClickListener btnListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             Button btnEvent = (Button)v;
-            if (btnEvent == btnPrev)
+            if (btnEvent == btnStart)
                 flipper.showPrevious();
             else
                 flipper.showNext();
